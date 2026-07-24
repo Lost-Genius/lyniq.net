@@ -9,6 +9,7 @@ export const authOptions: NextAuthOptions = {
   session: {
     strategy: "jwt",
   },
+  // @ts-ignore
   trustHost: true,
   pages: {
     signIn: "/login",
