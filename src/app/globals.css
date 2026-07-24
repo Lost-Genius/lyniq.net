@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --font-display: 'Orbitron', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0a0a0f;
+  color: #e0e0ff;
+  font-family: var(--font-mono);
+  min-height: 100vh;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1f1f2e;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00f0ff;
+}
+
+/* Neon text utility */
+.neon-text {
+  text-shadow: 0 0 7px rgba(0, 240, 255, 0.8),
+               0 0 10px rgba(0, 240, 255, 0.5),
+               0 0 21px rgba(0, 240, 255, 0.3);
+}
+
+.neon-text-magenta {
+  text-shadow: 0 0 7px rgba(255, 0, 170, 0.8),
+               0 0 10px rgba(255, 0, 170, 0.5);
+}
+
+/* Card hover effect */
+.cyber-card {
+  @apply bg-cyber-card border border-cyber-border rounded-lg transition-all duration-300;
+}
+
+.cyber-card:hover {
+  border-color: rgba(0, 240, 255, 0.4);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
+}
+
+/* Input styles */
+.cyber-input {
+  @apply w-full bg-cyber-bg border border-cyber-border rounded-md px-4 py-2.5 text-cyber-text placeholder-cyber-muted focus:outline-none focus:border-cyber-cyan focus:ring-1 focus:ring-cyber-cyan transition-colors;
+}
+
+.cyber-button {
+  @apply px-4 py-2 rounded-md font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.cyber-button-primary {
+  @apply cyber-button bg-cyber-cyan/10 text-cyber-cyan border border-cyber-cyan/50 hover:bg-cyber-cyan/20 hover:shadow-neon;
+}
+
+.cyber-button-magenta {
+  @apply cyber-button bg-cyber-magenta/10 text-cyber-magenta border border-cyber-magenta/50 hover:bg-cyber-magenta/20 hover:shadow-neon-magenta;
+}
+
+.cyber-button-ghost {
+  @apply cyber-button text-cyber-muted hover:text-cyber-text hover:bg-white/5;
+}
+
+/* Glitch effect for logo */
+.glitch-hover:hover {
+  animation: glitch 0.3s linear;
+}
