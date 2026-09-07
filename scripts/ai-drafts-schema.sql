@@ -7,3 +7,5 @@ CREATE TABLE IF NOT EXISTS newsroom.ai_draft_runs (
   error text, started_at timestamptz NOT NULL DEFAULT now(), finished_at timestamptz,
   PRIMARY KEY (period, category)
 );
+ALTER TABLE newsroom.ai_draft_runs ADD COLUMN IF NOT EXISTS research_packet jsonb;
+ALTER TABLE newsroom.articles ADD COLUMN IF NOT EXISTS research_metadata jsonb;

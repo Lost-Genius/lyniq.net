@@ -20,6 +20,7 @@ export type Timestamp = ColumnType<Date, Date | string, Date | string>;
 export type UserRole = "admin" | "user";
 
 export interface Articles {
+  researchMetadata: Generated<import('./researchPolicy').ResearchPacket | null>;
   aiMetadata: Generated<import('./aiDraftPolicy').AiDraftMetadata | null>;
   authorId: number | null;
   body: Generated<string>;
@@ -107,6 +108,7 @@ export interface Users {
 }
 
 export interface AiDraftRuns {
+  researchPacket: Generated<import('./researchPolicy').ResearchPacket | null>;
   period: string; category: string; status: Generated<string>; attempts: Generated<number>;
   articleId: number | null; topic: string | null; sourceUrls: Generated<string[]>;
   error: string | null; startedAt: Generated<Timestamp>; finishedAt: Timestamp | null;
