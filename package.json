@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/migrate-newsroom.mjs && tsx scripts/validate-newsroom.ts && next build",
+    "build": "node scripts/migrate-newsroom.mjs && node scripts/migrate-ai-drafts.mjs && tsx scripts/validate-newsroom.ts && next build",
     "build:local": "node scripts/local-build.cjs",
     "check": "tsc --noEmit",
     "start": "next start",
