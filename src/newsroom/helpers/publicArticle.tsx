@@ -1,0 +1,1 @@
+import {db} from './db';export async function publicArticle(slug:string){return await db.selectFrom('articles').selectAll().where('slug','=',slug).where('sourceId','is',null).where('status','in',['published','scheduled']).where('publishedAt','<=',new Date()).executeTakeFirst()||null;}

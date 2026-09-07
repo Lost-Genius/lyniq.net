@@ -1,0 +1,3 @@
+"use client";
+import React from 'react';import {Link} from "@/newsroom/navigation";import s from './NewsroomShell.module.css';export const NewsroomShell=({children,className}:{children:React.ReactNode,className?:string})=><div className={s.shell+' '+(className||'')}><header><Link to="/" className={s.logo}>lyniq<span>.</span></Link><nav><Link to="/">Read the news</Link><Link to="/sources">Sources</Link><Link to="/community">Community</Link><Link to="/admin">Newsroom</Link></nav></header><main>{children}</main><footer><Link to="/about">About</Link><Link to="/privacy">Privacy</Link><Link to="/terms">Terms & source disclaimer</Link></footer></div>;
+

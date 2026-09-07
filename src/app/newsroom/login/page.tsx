@@ -1,0 +1,1 @@
+import Page from '@/newsroom/pages/login';import Providers from '@/newsroom/Providers';export const dynamic='force-dynamic';export const metadata={title:"Newsroom sign in",robots:{index:false,follow:false}};export default function Route(){return <Providers><Page/></Providers>}

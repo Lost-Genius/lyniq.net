@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+:root, .newsroom-root {
+  /* Overlay layers */
+  --z-overlay: 400;
+
+  --z-spotlight: 1000; /* Tutorial spotlights/guided help */
+
+  /* System layers */
+  --z-critical: 2000; /* Critical system notifications */
+
+  /* spacing */
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-20: 5rem;
+}
+:root, .newsroom-root {
+--background:#fff;--foreground:#161616;--surface:#f1f1f1;--surface-foreground:#161616;--sidebar:#171717;--sidebar-foreground:#fff;--card:#fff;--card-foreground:#161616;--popup:#fff;--popup-foreground:#161616;
+--primary:#c8102e;--primary-foreground:#fff;--secondary:#171717;--secondary-foreground:#fff;--accent:#c8102e;--accent-foreground:#fff;--muted:#eee;--muted-foreground:#595959;--border:#d8d8d8;
+--success:#146b44;--success-foreground:#fff;--error:#b60020;--error-foreground:#fff;--warning:#f1c654;--warning-foreground:#161616;--info:#245d86;--info-foreground:#fff;--info-hover:#1c4866;--info-active:#123448;
+--font-family-base:'IBM Plex Sans',sans-serif;--font-family-display:'Newsreader',serif;--font-family-heading:'Newsreader',serif;--font-family-monospace:monospace;--font-family-cursive:cursive;
+--radius-sm:2px;--radius:2px;--radius-md:3px;--radius-lg:4px;--radius-full:999px;--shadow:none;--shadow-md:0 2px 8px #0001;--shadow-lg:0 5px 24px #0002;--shadow-focus:0 0 0 3px #c8102e33;--animation-duration-fast:120ms;--animation-duration-normal:200ms;--animation-duration-slow:300ms;--chart-color-1:#c8102e;--chart-color-2:#171717;--chart-color-3:#686868;--chart-color-4:#999;--chart-color-5:#ddd;
+}
+
+
+.newsroom-root{background:white;color:#161616;font-family:var(--font-family-base);min-height:100vh;}
+.newsroom-root h1,.newsroom-root h2,.newsroom-root h3{font-weight:600;}
+.newsroom-root a:focus-visible,.newsroom-root button:focus-visible{outline:3px solid #c8102e;outline-offset:4px;}
+

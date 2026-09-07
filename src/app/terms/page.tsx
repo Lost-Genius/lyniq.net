@@ -1,0 +1,1 @@
+import Page from '@/newsroom/pages/terms';import Providers from '@/newsroom/Providers';export const dynamic='force-dynamic';export const metadata={title:"Terms & source disclaimer",alternates:{canonical:'/terms'}};export default function Route(){return <Providers><Page/></Providers>}

@@ -1,0 +1,1 @@
+import Page from '@/newsroom/pages/about';import Providers from '@/newsroom/Providers';export const dynamic='force-dynamic';export const metadata={title:"Our editorial approach",alternates:{canonical:'/about'}};export default function Route(){return <Providers><Page/></Providers>}

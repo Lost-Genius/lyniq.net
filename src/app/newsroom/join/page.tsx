@@ -1,0 +1,1 @@
+import Page from '@/newsroom/pages/join';import Providers from '@/newsroom/Providers';export const dynamic='force-dynamic';export const metadata={title:"Join the newsroom",referrer:"no-referrer" as const,robots:{index:false,follow:false}};export default function Route(){return <Providers><Page/></Providers>}

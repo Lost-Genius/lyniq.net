@@ -1,0 +1,1 @@
+import Page from '@/newsroom/pages/privacy';import Providers from '@/newsroom/Providers';export const dynamic='force-dynamic';export const metadata={title:"Privacy",alternates:{canonical:'/privacy'}};export default function Route(){return <Providers><Page/></Providers>}

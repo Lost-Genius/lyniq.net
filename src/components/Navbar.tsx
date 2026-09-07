@@ -15,7 +15,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-14">
           {/* Logo */}
           <Link
-            href="/"
+            href="/community"
             className="font-display text-xl font-bold tracking-wider text-cyber-cyan neon-text glitch-hover"
           >
             LYNIQ
@@ -24,7 +24,7 @@ export default function Navbar() {
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-6">
             <Link
-              href="/"
+              href="/community"
               className="text-sm text-cyber-muted hover:text-cyber-cyan transition-colors flex items-center gap-1.5"
             >
               <Home size={16} />
@@ -95,7 +95,7 @@ export default function Navbar() {
         {mobileOpen && (
           <div className="md:hidden py-4 border-t border-cyber-border space-y-3">
             <Link
-              href="/"
+              href="/community"
               className="block text-sm text-cyber-muted hover:text-cyber-cyan"
               onClick={() => setMobileOpen(false)}
             >

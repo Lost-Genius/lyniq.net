@@ -1,0 +1,3 @@
+"use client";
+import React,{useState} from 'react';import {QueryClient,QueryClientProvider,HydrationBoundary,DehydratedState} from '@tanstack/react-query';import {AuthProvider} from './helpers/useAuth';import {TooltipProvider} from './components/Tooltip';import {SonnerToaster} from './components/SonnerToaster';
+export default function NewsroomProviders({children,state}:{children:React.ReactNode,state?:DehydratedState}){const [client]=useState(()=>new QueryClient({defaultOptions:{queries:{staleTime:60000,retry:1}}}));return <QueryClientProvider client={client}><HydrationBoundary state={state}><TooltipProvider><AuthProvider>{children}</AuthProvider><SonnerToaster/></TooltipProvider></HydrationBoundary></QueryClientProvider>;}

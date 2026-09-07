@@ -1,0 +1,1 @@
+import superjson from 'superjson';import {publicNews} from '../helpers/publicNews';export async function handle(){try{return new Response(superjson.stringify(await publicNews()),{headers:{'Content-Type':'application/json','Cache-Control':'public, max-age=60'}})}catch(e){console.error(e);return new Response(superjson.stringify({error:'News unavailable'}),{status:503})}}

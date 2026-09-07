@@ -1,14 +1,1 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "**",
-      },
-    ],
-  },
-};
-
-export default nextConfig;
+import type {NextConfig} from 'next';const nextConfig:NextConfig={images:{remotePatterns:[{protocol:'https',hostname:'**'}]},async rewrites(){return [{source:'/_api/:path*',destination:'/api/newsroom/:path*'}]}};export default nextConfig;
