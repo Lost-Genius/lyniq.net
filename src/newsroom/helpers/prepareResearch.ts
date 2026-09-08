@@ -38,7 +38,7 @@ export async function prepareResearch(refresh?:Category) {
       const originals=await trx.selectFrom('articles').select('title').where('sourceId','is',null).where('createdAt','>=',new Date(now.getTime()-7*86400000)).limit(100).execute();
       used.push(...originals.map(a=>({topic:a.title,urls:[]})));
       const packet=buildPacket(category,feed,used,now);
-      const values={status:'completed',topic:packet.topic,sourceUrls:sql<string[]>`${JSON.stringify(packet.sources.map(s=>s.url))}::jsonb`,researchPacket:sql<ResearchPacket>`${JSON.stringify(packet)}::jsonb`,finishedAt:now,error:null};
+      const values={status:'completed',topic:packet.topic,sourceUrls:sql<string[]>`${JSON.stringify(packet.sources.map(s=>s.url))}::text::jsonb`,researchPacket:sql<ResearchPacket>`${JSON.stringify(packet)}::text::jsonb`,finishedAt:now,error:null};
       if(prior)await trx.updateTable('aiDraftRuns').set(values).where('period','=',period).where('category','=',category).execute();
       else await trx.insertInto('aiDraftRuns').values({period,category,...values}).execute();
       await trx.insertInto('auditLog').values({userId:null,articleId:null,action:`research:${refresh?'refresh':'prepare'}:${period}:${category}`}).execute();
@@ -53,7 +53,7 @@ export async function createResearchDraft(category:Category,user:{id:number;disp
     if(run.articleId)return {articleId:run.articleId};
     const packet=run.researchPacket;
     if(!packet?.sources.length)throw new Error('Prepare a packet with source metadata first');
-    const article=await trx.insertInto('articles').values({slug:`research-${period}-${category}`,title:packet.topic,excerpt:'',body:'',section:sections[category],status:'draft',publishedAt:null,featured:false,sourceId:null,sourceUrl:null,authorId:user.id,byline:user.displayName,researchMetadata:sql`${JSON.stringify(packet)}::jsonb`}).returning('id').executeTakeFirstOrThrow();
+    const article=await trx.insertInto('articles').values({slug:`research-${period}-${category}`,title:packet.topic,excerpt:'',body:'',section:sections[category],status:'draft',publishedAt:null,featured:false,sourceId:null,sourceUrl:null,authorId:user.id,byline:user.displayName,researchMetadata:sql`${JSON.stringify(packet)}::text::jsonb`}).returning('id').executeTakeFirstOrThrow();
     await trx.updateTable('aiDraftRuns').set({articleId:article.id}).where('period','=',period).where('category','=',category).execute();
     await trx.insertInto('auditLog').values({userId:user.id,articleId:article.id,action:'research:create-draft:'+category}).execute();
     return {articleId:article.id};

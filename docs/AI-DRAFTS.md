@@ -8,7 +8,7 @@ The Daily AI Drafts feature now prepares research packets from existing approved
 - Reuse the existing server-only `DATABASE_URL` and `CRON_SECRET`. No API keys, model, embeddings, news API subscriptions or additional service are required.
 - Apply `scripts/migrate-ai-drafts.mjs` with `AI_DRAFT_MIGRATE=1` and a real DATABASE_URL before deploying. The retained flag is migration-only, not an AI switch. On Vercel, a deployment build can receive `--build-env AI_DRAFT_MIGRATE=1`; the existing build script runs this additive migration. Do not enable the old Floot migration. This works whether the previous AI-draft migration was already applied or not.
 - The migration adds nullable `research_packet` to the daily ledger and `research_metadata` to articles. Existing community/editor data and historical AI metadata remain intact.
-- Deploy only after explicit approval. Neither deployment nor production migration was performed for this change.
+- Release authorized on 8 September 2026. The additive migration passed with and without the previous AI migration, including repeat application and preservation of existing article/AI values. Isolated real-database checks cover concurrent preparation, JSON round trips, draft privacy, signed sessions and role downgrades. Production uses DAILY_RESEARCH_ENABLED=true.
 
 ## Daily operation
 
@@ -24,7 +24,7 @@ Prior seven-day packet URLs/topics and recent manually created article headlines
 
 ## Manual complete-cycle check
 
-1. After migration/deployment, sign in as an editor/owner; enable DAILY_RESEARCH_ENABLED server-side and redeploy as required by Vercel.
+1. Sign in as an editor/owner at https://www.lyniq.net/newsroom/login and open Articles in /admin.
 2. Import approved feeds through the existing Sources tab if fresh metadata is needed.
 3. Under Articles, click Prepare today's research. Inspect all three category slots and View Sources. Running preparation again should report Already Prepared and preserve packets.
 4. Click Copy ChatGPT Draft Prompt. Paste it manually into your own ChatGPT conversation. If browser clipboard access fails, the UI exposes a selectable text box instead. No ChatGPT URL, credential or account automation is used.
