@@ -1,5 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
+import {randomBytes} from 'node:crypto';
 import {existsSync,readFileSync} from 'node:fs';
 import {periodKey,canonicalUrl} from '../src/newsroom/helpers/aiDraftPolicy';
 import {buildPacket,eventMatch,chatGptPrompt,publisherKey,type FeedItem} from '../src/newsroom/helpers/researchPolicy';
@@ -60,9 +61,13 @@ test('paid provider code removed and research engine cannot make outbound reques
   assert.match(engine,/pg_advisory_xact_lock/);
 });
 test('cron and editor endpoints reject unauthenticated requests without network access',async()=>{
-  process.env.DATABASE_URL='postgresql://test:test@127.0.0.1:5432/test';process.env.NEXTAUTH_SECRET='test-only';process.env.CRON_SECRET='test-cron';
+  process.env.DATABASE_URL='postgresql://test:test@127.0.0.1:5432/test';process.env.NEXTAUTH_SECRET='test-only';process.env.CRON_SECRET=randomBytes(32).toString('hex');
   const {GET,POST}=await import('../src/app/api/cron/drafts/route');
   assert.equal((await GET(new Request('https://lyniq.net/api/cron/drafts'))).status,401);
+  for(const authorization of ['Bearer wrong','Basic '+process.env.CRON_SECRET,'Bearer  '+process.env.CRON_SECRET,'Bearer']){
+    const response=await GET(new Request('https://lyniq.net/api/cron/drafts',{headers:{authorization}}));
+    assert.equal(response.status,401);assert.deepEqual(await response.json(),{error:'Unauthorised'});
+  }
   assert.equal((await GET(new Request('https://lyniq.net/api/cron/drafts?view=1'))).status,403);
   assert.equal((await POST(new Request('https://lyniq.net/api/cron/drafts',{method:'POST',headers:{origin:'https://evil.example'}}))).status,403);
   const {db}=await import('../src/newsroom/helpers/db');await db.destroy();

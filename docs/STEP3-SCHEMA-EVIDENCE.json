@@ -1,0 +1,1117 @@
+{
+  "testProject": "sweet-rain-17944434",
+  "tables": [
+    {
+      "table_name": "ai_draft_runs"
+    },
+    {
+      "table_name": "articles"
+    },
+    {
+      "table_name": "audit_log"
+    },
+    {
+      "table_name": "invitations"
+    },
+    {
+      "table_name": "login_attempts"
+    },
+    {
+      "table_name": "sessions"
+    },
+    {
+      "table_name": "sources"
+    },
+    {
+      "table_name": "team_members"
+    },
+    {
+      "table_name": "user_passwords"
+    },
+    {
+      "table_name": "users"
+    }
+  ],
+  "columns": [
+    {
+      "table_name": "ai_draft_runs",
+      "column_name": "period",
+      "data_type": "text",
+      "is_nullable": "NO",
+      "column_default": null
+    },
+    {
+      "table_name": "ai_draft_runs",
+      "column_name": "category",
+      "data_type": "text",
+      "is_nullable": "NO",
+      "column_default": null
+    },
+    {
+      "table_name": "ai_draft_runs",
+      "column_name": "status",
+      "data_type": "text",
+      "is_nullable": "NO",
+      "column_default": "'running'::text"
+    },
+    {
+      "table_name": "ai_draft_runs",
+      "column_name": "attempts",
+      "data_type": "integer",
+      "is_nullable": "NO",
+      "column_default": "1"
+    },
+    {
+      "table_name": "ai_draft_runs",
+      "column_name": "article_id",
+      "data_type": "integer",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "ai_draft_runs",
+      "column_name": "topic",
+      "data_type": "text",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "ai_draft_runs",
+      "column_name": "source_urls",
+      "data_type": "jsonb",
+      "is_nullable": "NO",
+      "column_default": "'[]'::jsonb"
+    },
+    {
+      "table_name": "ai_draft_runs",
+      "column_name": "error",
+      "data_type": "text",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "ai_draft_runs",
+      "column_name": "started_at",
+      "data_type": "timestamp with time zone",
+      "is_nullable": "NO",
+      "column_default": "now()"
+    },
+    {
+      "table_name": "ai_draft_runs",
+      "column_name": "finished_at",
+      "data_type": "timestamp with time zone",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "ai_draft_runs",
+      "column_name": "research_packet",
+      "data_type": "jsonb",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "articles",
+      "column_name": "id",
+      "data_type": "integer",
+      "is_nullable": "NO",
+      "column_default": "nextval('newsroom.articles_id_seq'::regclass)"
+    },
+    {
+      "table_name": "articles",
+      "column_name": "slug",
+      "data_type": "text",
+      "is_nullable": "NO",
+      "column_default": null
+    },
+    {
+      "table_name": "articles",
+      "column_name": "title",
+      "data_type": "text",
+      "is_nullable": "NO",
+      "column_default": null
+    },
+    {
+      "table_name": "articles",
+      "column_name": "excerpt",
+      "data_type": "text",
+      "is_nullable": "NO",
+      "column_default": "''::text"
+    },
+    {
+      "table_name": "articles",
+      "column_name": "body",
+      "data_type": "text",
+      "is_nullable": "NO",
+      "column_default": "''::text"
+    },
+    {
+      "table_name": "articles",
+      "column_name": "section",
+      "data_type": "USER-DEFINED",
+      "is_nullable": "NO",
+      "column_default": null
+    },
+    {
+      "table_name": "articles",
+      "column_name": "status",
+      "data_type": "USER-DEFINED",
+      "is_nullable": "NO",
+      "column_default": "'draft'::newsroom.article_status"
+    },
+    {
+      "table_name": "articles",
+      "column_name": "source_id",
+      "data_type": "integer",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "articles",
+      "column_name": "source_url",
+      "data_type": "text",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "articles",
+      "column_name": "author_id",
+      "data_type": "integer",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "articles",
+      "column_name": "byline",
+      "data_type": "text",
+      "is_nullable": "NO",
+      "column_default": null
+    },
+    {
+      "table_name": "articles",
+      "column_name": "featured",
+      "data_type": "boolean",
+      "is_nullable": "NO",
+      "column_default": "false"
+    },
+    {
+      "table_name": "articles",
+      "column_name": "published_at",
+      "data_type": "timestamp with time zone",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "articles",
+      "column_name": "updated_at",
+      "data_type": "timestamp with time zone",
+      "is_nullable": "NO",
+      "column_default": "now()"
+    },
+    {
+      "table_name": "articles",
+      "column_name": "created_at",
+      "data_type": "timestamp with time zone",
+      "is_nullable": "NO",
+      "column_default": "now()"
+    },
+    {
+      "table_name": "articles",
+      "column_name": "version",
+      "data_type": "integer",
+      "is_nullable": "NO",
+      "column_default": "1"
+    },
+    {
+      "table_name": "articles",
+      "column_name": "ai_metadata",
+      "data_type": "jsonb",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "articles",
+      "column_name": "research_metadata",
+      "data_type": "jsonb",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "audit_log",
+      "column_name": "id",
+      "data_type": "integer",
+      "is_nullable": "NO",
+      "column_default": "nextval('newsroom.audit_log_id_seq'::regclass)"
+    },
+    {
+      "table_name": "audit_log",
+      "column_name": "user_id",
+      "data_type": "integer",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "audit_log",
+      "column_name": "action",
+      "data_type": "text",
+      "is_nullable": "NO",
+      "column_default": null
+    },
+    {
+      "table_name": "audit_log",
+      "column_name": "article_id",
+      "data_type": "integer",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "audit_log",
+      "column_name": "created_at",
+      "data_type": "timestamp with time zone",
+      "is_nullable": "NO",
+      "column_default": "now()"
+    },
+    {
+      "table_name": "invitations",
+      "column_name": "id",
+      "data_type": "integer",
+      "is_nullable": "NO",
+      "column_default": "nextval('newsroom.invitations_id_seq'::regclass)"
+    },
+    {
+      "table_name": "invitations",
+      "column_name": "token_hash",
+      "data_type": "text",
+      "is_nullable": "NO",
+      "column_default": null
+    },
+    {
+      "table_name": "invitations",
+      "column_name": "email",
+      "data_type": "text",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "invitations",
+      "column_name": "role",
+      "data_type": "USER-DEFINED",
+      "is_nullable": "NO",
+      "column_default": null
+    },
+    {
+      "table_name": "invitations",
+      "column_name": "expires_at",
+      "data_type": "timestamp with time zone",
+      "is_nullable": "NO",
+      "column_default": null
+    },
+    {
+      "table_name": "invitations",
+      "column_name": "used_at",
+      "data_type": "timestamp with time zone",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "login_attempts",
+      "column_name": "id",
+      "data_type": "integer",
+      "is_nullable": "NO",
+      "column_default": "nextval('newsroom.login_attempts_id_seq'::regclass)"
+    },
+    {
+      "table_name": "login_attempts",
+      "column_name": "email",
+      "data_type": "text",
+      "is_nullable": "NO",
+      "column_default": null
+    },
+    {
+      "table_name": "login_attempts",
+      "column_name": "attempted_at",
+      "data_type": "timestamp with time zone",
+      "is_nullable": "YES",
+      "column_default": "now()"
+    },
+    {
+      "table_name": "login_attempts",
+      "column_name": "success",
+      "data_type": "boolean",
+      "is_nullable": "YES",
+      "column_default": "false"
+    },
+    {
+      "table_name": "sessions",
+      "column_name": "id",
+      "data_type": "text",
+      "is_nullable": "NO",
+      "column_default": null
+    },
+    {
+      "table_name": "sessions",
+      "column_name": "user_id",
+      "data_type": "integer",
+      "is_nullable": "NO",
+      "column_default": null
+    },
+    {
+      "table_name": "sessions",
+      "column_name": "created_at",
+      "data_type": "timestamp with time zone",
+      "is_nullable": "YES",
+      "column_default": "now()"
+    },
+    {
+      "table_name": "sessions",
+      "column_name": "last_accessed",
+      "data_type": "timestamp with time zone",
+      "is_nullable": "YES",
+      "column_default": "now()"
+    },
+    {
+      "table_name": "sessions",
+      "column_name": "expires_at",
+      "data_type": "timestamp with time zone",
+      "is_nullable": "NO",
+      "column_default": null
+    },
+    {
+      "table_name": "sources",
+      "column_name": "id",
+      "data_type": "integer",
+      "is_nullable": "NO",
+      "column_default": "nextval('newsroom.sources_id_seq'::regclass)"
+    },
+    {
+      "table_name": "sources",
+      "column_name": "name",
+      "data_type": "text",
+      "is_nullable": "NO",
+      "column_default": null
+    },
+    {
+      "table_name": "sources",
+      "column_name": "website",
+      "data_type": "text",
+      "is_nullable": "NO",
+      "column_default": null
+    },
+    {
+      "table_name": "sources",
+      "column_name": "feed_url",
+      "data_type": "text",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "sources",
+      "column_name": "section",
+      "data_type": "USER-DEFINED",
+      "is_nullable": "NO",
+      "column_default": null
+    },
+    {
+      "table_name": "sources",
+      "column_name": "enabled",
+      "data_type": "boolean",
+      "is_nullable": "NO",
+      "column_default": "false"
+    },
+    {
+      "table_name": "sources",
+      "column_name": "rights_note",
+      "data_type": "text",
+      "is_nullable": "NO",
+      "column_default": null
+    },
+    {
+      "table_name": "sources",
+      "column_name": "checked_at",
+      "data_type": "timestamp with time zone",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "sources",
+      "column_name": "last_success_at",
+      "data_type": "timestamp with time zone",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "sources",
+      "column_name": "last_error",
+      "data_type": "text",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "team_members",
+      "column_name": "user_id",
+      "data_type": "integer",
+      "is_nullable": "NO",
+      "column_default": null
+    },
+    {
+      "table_name": "team_members",
+      "column_name": "role",
+      "data_type": "USER-DEFINED",
+      "is_nullable": "NO",
+      "column_default": null
+    },
+    {
+      "table_name": "user_passwords",
+      "column_name": "id",
+      "data_type": "integer",
+      "is_nullable": "NO",
+      "column_default": "nextval('newsroom.user_passwords_id_seq'::regclass)"
+    },
+    {
+      "table_name": "user_passwords",
+      "column_name": "user_id",
+      "data_type": "integer",
+      "is_nullable": "NO",
+      "column_default": null
+    },
+    {
+      "table_name": "user_passwords",
+      "column_name": "password_hash",
+      "data_type": "text",
+      "is_nullable": "NO",
+      "column_default": null
+    },
+    {
+      "table_name": "user_passwords",
+      "column_name": "created_at",
+      "data_type": "timestamp with time zone",
+      "is_nullable": "YES",
+      "column_default": "now()"
+    },
+    {
+      "table_name": "users",
+      "column_name": "id",
+      "data_type": "integer",
+      "is_nullable": "NO",
+      "column_default": "nextval('newsroom.users_id_seq'::regclass)"
+    },
+    {
+      "table_name": "users",
+      "column_name": "email",
+      "data_type": "text",
+      "is_nullable": "NO",
+      "column_default": null
+    },
+    {
+      "table_name": "users",
+      "column_name": "display_name",
+      "data_type": "text",
+      "is_nullable": "NO",
+      "column_default": null
+    },
+    {
+      "table_name": "users",
+      "column_name": "avatar_url",
+      "data_type": "text",
+      "is_nullable": "YES",
+      "column_default": null
+    },
+    {
+      "table_name": "users",
+      "column_name": "role",
+      "data_type": "USER-DEFINED",
+      "is_nullable": "NO",
+      "column_default": "'user'::newsroom.user_role"
+    },
+    {
+      "table_name": "users",
+      "column_name": "created_at",
+      "data_type": "timestamp with time zone",
+      "is_nullable": "YES",
+      "column_default": "now()"
+    },
+    {
+      "table_name": "users",
+      "column_name": "updated_at",
+      "data_type": "timestamp with time zone",
+      "is_nullable": "YES",
+      "column_default": "now()"
+    }
+  ],
+  "indexes": [
+    {
+      "indexname": "ai_draft_runs_pkey",
+      "indexdef": "CREATE UNIQUE INDEX ai_draft_runs_pkey ON newsroom.ai_draft_runs USING btree (period, category)"
+    },
+    {
+      "indexname": "articles_pkey",
+      "indexdef": "CREATE UNIQUE INDEX articles_pkey ON newsroom.articles USING btree (id)"
+    },
+    {
+      "indexname": "articles_slug_key",
+      "indexdef": "CREATE UNIQUE INDEX articles_slug_key ON newsroom.articles USING btree (slug)"
+    },
+    {
+      "indexname": "articles_source_url_key",
+      "indexdef": "CREATE UNIQUE INDEX articles_source_url_key ON newsroom.articles USING btree (source_url)"
+    },
+    {
+      "indexname": "audit_log_pkey",
+      "indexdef": "CREATE UNIQUE INDEX audit_log_pkey ON newsroom.audit_log USING btree (id)"
+    },
+    {
+      "indexname": "invitations_pkey",
+      "indexdef": "CREATE UNIQUE INDEX invitations_pkey ON newsroom.invitations USING btree (id)"
+    },
+    {
+      "indexname": "invitations_token_hash_key",
+      "indexdef": "CREATE UNIQUE INDEX invitations_token_hash_key ON newsroom.invitations USING btree (token_hash)"
+    },
+    {
+      "indexname": "login_attempts_pkey",
+      "indexdef": "CREATE UNIQUE INDEX login_attempts_pkey ON newsroom.login_attempts USING btree (id)"
+    },
+    {
+      "indexname": "newsroom_article_public_idx",
+      "indexdef": "CREATE INDEX newsroom_article_public_idx ON newsroom.articles USING btree (status, published_at DESC)"
+    },
+    {
+      "indexname": "newsroom_article_section_idx",
+      "indexdef": "CREATE INDEX newsroom_article_section_idx ON newsroom.articles USING btree (section, status, published_at DESC)"
+    },
+    {
+      "indexname": "newsroom_attempt_email_idx",
+      "indexdef": "CREATE INDEX newsroom_attempt_email_idx ON newsroom.login_attempts USING btree (email, attempted_at)"
+    },
+    {
+      "indexname": "newsroom_session_user_idx",
+      "indexdef": "CREATE INDEX newsroom_session_user_idx ON newsroom.sessions USING btree (user_id)"
+    },
+    {
+      "indexname": "sessions_pkey",
+      "indexdef": "CREATE UNIQUE INDEX sessions_pkey ON newsroom.sessions USING btree (id)"
+    },
+    {
+      "indexname": "sources_name_key",
+      "indexdef": "CREATE UNIQUE INDEX sources_name_key ON newsroom.sources USING btree (name)"
+    },
+    {
+      "indexname": "sources_pkey",
+      "indexdef": "CREATE UNIQUE INDEX sources_pkey ON newsroom.sources USING btree (id)"
+    },
+    {
+      "indexname": "team_members_pkey",
+      "indexdef": "CREATE UNIQUE INDEX team_members_pkey ON newsroom.team_members USING btree (user_id)"
+    },
+    {
+      "indexname": "user_passwords_pkey",
+      "indexdef": "CREATE UNIQUE INDEX user_passwords_pkey ON newsroom.user_passwords USING btree (id)"
+    },
+    {
+      "indexname": "user_passwords_user_id_key",
+      "indexdef": "CREATE UNIQUE INDEX user_passwords_user_id_key ON newsroom.user_passwords USING btree (user_id)"
+    },
+    {
+      "indexname": "users_email_key",
+      "indexdef": "CREATE UNIQUE INDEX users_email_key ON newsroom.users USING btree (email)"
+    },
+    {
+      "indexname": "users_pkey",
+      "indexdef": "CREATE UNIQUE INDEX users_pkey ON newsroom.users USING btree (id)"
+    }
+  ],
+  "constraints": [
+    {
+      "conname": "ai_draft_runs_article_id_fkey",
+      "contype": "f",
+      "convalidated": true,
+      "definition": "FOREIGN KEY (article_id) REFERENCES newsroom.articles(id)"
+    },
+    {
+      "conname": "ai_draft_runs_attempts_check",
+      "contype": "c",
+      "convalidated": true,
+      "definition": "CHECK (((attempts >= 1) AND (attempts <= 2)))"
+    },
+    {
+      "conname": "ai_draft_runs_attempts_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL attempts"
+    },
+    {
+      "conname": "ai_draft_runs_category_check",
+      "contype": "c",
+      "convalidated": true,
+      "definition": "CHECK ((category = ANY (ARRAY['politics'::text, 'entertainment'::text, 'technology'::text])))"
+    },
+    {
+      "conname": "ai_draft_runs_category_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL category"
+    },
+    {
+      "conname": "ai_draft_runs_period_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL period"
+    },
+    {
+      "conname": "ai_draft_runs_pkey",
+      "contype": "p",
+      "convalidated": true,
+      "definition": "PRIMARY KEY (period, category)"
+    },
+    {
+      "conname": "ai_draft_runs_source_urls_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL source_urls"
+    },
+    {
+      "conname": "ai_draft_runs_started_at_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL started_at"
+    },
+    {
+      "conname": "ai_draft_runs_status_check",
+      "contype": "c",
+      "convalidated": true,
+      "definition": "CHECK ((status = ANY (ARRAY['running'::text, 'completed'::text, 'failed'::text])))"
+    },
+    {
+      "conname": "ai_draft_runs_status_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL status"
+    },
+    {
+      "conname": "articles_author_id_fkey",
+      "contype": "f",
+      "convalidated": true,
+      "definition": "FOREIGN KEY (author_id) REFERENCES newsroom.users(id)"
+    },
+    {
+      "conname": "articles_body_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL body"
+    },
+    {
+      "conname": "articles_byline_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL byline"
+    },
+    {
+      "conname": "articles_created_at_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL created_at"
+    },
+    {
+      "conname": "articles_excerpt_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL excerpt"
+    },
+    {
+      "conname": "articles_featured_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL featured"
+    },
+    {
+      "conname": "articles_id_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL id"
+    },
+    {
+      "conname": "articles_pkey",
+      "contype": "p",
+      "convalidated": true,
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "conname": "articles_section_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL section"
+    },
+    {
+      "conname": "articles_slug_key",
+      "contype": "u",
+      "convalidated": true,
+      "definition": "UNIQUE (slug)"
+    },
+    {
+      "conname": "articles_slug_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL slug"
+    },
+    {
+      "conname": "articles_source_id_fkey",
+      "contype": "f",
+      "convalidated": true,
+      "definition": "FOREIGN KEY (source_id) REFERENCES newsroom.sources(id)"
+    },
+    {
+      "conname": "articles_source_url_key",
+      "contype": "u",
+      "convalidated": true,
+      "definition": "UNIQUE (source_url)"
+    },
+    {
+      "conname": "articles_status_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL status"
+    },
+    {
+      "conname": "articles_title_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL title"
+    },
+    {
+      "conname": "articles_updated_at_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL updated_at"
+    },
+    {
+      "conname": "articles_version_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL version"
+    },
+    {
+      "conname": "audit_log_action_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL action"
+    },
+    {
+      "conname": "audit_log_created_at_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL created_at"
+    },
+    {
+      "conname": "audit_log_id_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL id"
+    },
+    {
+      "conname": "audit_log_pkey",
+      "contype": "p",
+      "convalidated": true,
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "conname": "audit_log_user_id_fkey",
+      "contype": "f",
+      "convalidated": true,
+      "definition": "FOREIGN KEY (user_id) REFERENCES newsroom.users(id)"
+    },
+    {
+      "conname": "invitations_expires_at_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL expires_at"
+    },
+    {
+      "conname": "invitations_id_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL id"
+    },
+    {
+      "conname": "invitations_pkey",
+      "contype": "p",
+      "convalidated": true,
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "conname": "invitations_role_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL role"
+    },
+    {
+      "conname": "invitations_token_hash_key",
+      "contype": "u",
+      "convalidated": true,
+      "definition": "UNIQUE (token_hash)"
+    },
+    {
+      "conname": "invitations_token_hash_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL token_hash"
+    },
+    {
+      "conname": "login_attempts_email_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL email"
+    },
+    {
+      "conname": "login_attempts_id_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL id"
+    },
+    {
+      "conname": "login_attempts_pkey",
+      "contype": "p",
+      "convalidated": true,
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "conname": "sessions_expires_at_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL expires_at"
+    },
+    {
+      "conname": "sessions_id_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL id"
+    },
+    {
+      "conname": "sessions_pkey",
+      "contype": "p",
+      "convalidated": true,
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "conname": "sessions_user_id_fkey",
+      "contype": "f",
+      "convalidated": true,
+      "definition": "FOREIGN KEY (user_id) REFERENCES newsroom.users(id)"
+    },
+    {
+      "conname": "sessions_user_id_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL user_id"
+    },
+    {
+      "conname": "sources_enabled_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL enabled"
+    },
+    {
+      "conname": "sources_id_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL id"
+    },
+    {
+      "conname": "sources_name_key",
+      "contype": "u",
+      "convalidated": true,
+      "definition": "UNIQUE (name)"
+    },
+    {
+      "conname": "sources_name_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL name"
+    },
+    {
+      "conname": "sources_pkey",
+      "contype": "p",
+      "convalidated": true,
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "conname": "sources_rights_note_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL rights_note"
+    },
+    {
+      "conname": "sources_section_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL section"
+    },
+    {
+      "conname": "sources_website_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL website"
+    },
+    {
+      "conname": "team_members_pkey",
+      "contype": "p",
+      "convalidated": true,
+      "definition": "PRIMARY KEY (user_id)"
+    },
+    {
+      "conname": "team_members_role_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL role"
+    },
+    {
+      "conname": "team_members_user_id_fkey",
+      "contype": "f",
+      "convalidated": true,
+      "definition": "FOREIGN KEY (user_id) REFERENCES newsroom.users(id)"
+    },
+    {
+      "conname": "team_members_user_id_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL user_id"
+    },
+    {
+      "conname": "user_passwords_id_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL id"
+    },
+    {
+      "conname": "user_passwords_password_hash_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL password_hash"
+    },
+    {
+      "conname": "user_passwords_pkey",
+      "contype": "p",
+      "convalidated": true,
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "conname": "user_passwords_user_id_fkey",
+      "contype": "f",
+      "convalidated": true,
+      "definition": "FOREIGN KEY (user_id) REFERENCES newsroom.users(id)"
+    },
+    {
+      "conname": "user_passwords_user_id_key",
+      "contype": "u",
+      "convalidated": true,
+      "definition": "UNIQUE (user_id)"
+    },
+    {
+      "conname": "user_passwords_user_id_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL user_id"
+    },
+    {
+      "conname": "users_display_name_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL display_name"
+    },
+    {
+      "conname": "users_email_key",
+      "contype": "u",
+      "convalidated": true,
+      "definition": "UNIQUE (email)"
+    },
+    {
+      "conname": "users_email_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL email"
+    },
+    {
+      "conname": "users_id_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL id"
+    },
+    {
+      "conname": "users_pkey",
+      "contype": "p",
+      "convalidated": true,
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "conname": "users_role_not_null",
+      "contype": "n",
+      "convalidated": true,
+      "definition": "NOT NULL role"
+    }
+  ],
+  "enums": [
+    {
+      "typname": "article_section",
+      "enumlabel": "Local"
+    },
+    {
+      "typname": "article_section",
+      "enumlabel": "Caribbean"
+    },
+    {
+      "typname": "article_section",
+      "enumlabel": "World"
+    },
+    {
+      "typname": "article_section",
+      "enumlabel": "Business"
+    },
+    {
+      "typname": "article_section",
+      "enumlabel": "Tech"
+    },
+    {
+      "typname": "article_section",
+      "enumlabel": "Culture"
+    },
+    {
+      "typname": "article_section",
+      "enumlabel": "Opinion"
+    },
+    {
+      "typname": "article_status",
+      "enumlabel": "draft"
+    },
+    {
+      "typname": "article_status",
+      "enumlabel": "review"
+    },
+    {
+      "typname": "article_status",
+      "enumlabel": "scheduled"
+    },
+    {
+      "typname": "article_status",
+      "enumlabel": "published"
+    },
+    {
+      "typname": "newsroom_role",
+      "enumlabel": "owner"
+    },
+    {
+      "typname": "newsroom_role",
+      "enumlabel": "editor"
+    },
+    {
+      "typname": "newsroom_role",
+      "enumlabel": "writer"
+    },
+    {
+      "typname": "user_role",
+      "enumlabel": "admin"
+    },
+    {
+      "typname": "user_role",
+      "enumlabel": "user"
+    }
+  ]
+}

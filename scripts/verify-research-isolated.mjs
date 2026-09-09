@@ -4,6 +4,7 @@ import {readFile,writeFile,mkdir,cp,rm} from 'node:fs/promises';
 import {resolve,join,sep} from 'node:path';
 import {randomBytes} from 'node:crypto';
 import {spawn} from 'node:child_process';
+import {pathToFileURL} from 'node:url';
 import assert from 'node:assert/strict';
 if(process.env.RESEARCH_VERIFY!=='1')process.exit(0);
 const sql=postgres(process.env.DATABASE_URL,{max:1,prepare:false,onnotice:()=>{},connection:{statement_timeout:30000}});
@@ -30,7 +31,7 @@ try{
       if(previous)assert.equal((await sql.unsafe(`SELECT ai_metadata FROM ${schema}.articles WHERE slug='preserve'`))[0].ai_metadata.legacy,'preserve');
       await writeFile(join(temp,'src/newsroom/helpers/db.tsx'),originalDb.replace('max: 3,','max: 3, connection: { statement_timeout: 30000 },').replace('.withSchema("newsroom")',`.withSchema("${schema}")`));
       for(const file of ['validate-newsroom.ts','verify-research-cycle.ts']){
-        console.log('Running isolated check:',file); const status=await new Promise((done,fail)=>{const child=spawn(process.execPath,['--import',join(root,'node_modules/tsx/dist/loader.mjs'),join(temp,'scripts',file)],{cwd:root,env:{...process.env,NEWSROOM_VALIDATE:'1',DAILY_RESEARCH_ENABLED:'true'},stdio:'inherit',timeout:120000});child.on('error',fail);child.on('exit',done);});
+        console.log('Running isolated check:',file); const status=await new Promise((done,fail)=>{const child=spawn(process.execPath,['--import',pathToFileURL(join(root,'node_modules/tsx/dist/loader.mjs')).href,join(temp,'scripts',file)],{cwd:root,env:{...process.env,NEWSROOM_VALIDATE:'1',DAILY_RESEARCH_ENABLED:'true'},stdio:'inherit',timeout:120000});child.on('error',fail);child.on('exit',done);});
         if(status!==0)throw new Error('Isolated verification failed: '+file);
       }
       console.log('PASS: additive/repeated migration and isolated API/research cycle; prior AI migration:',previous);

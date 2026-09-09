@@ -1,4 +1,4 @@
-import {timingSafeEqual} from 'node:crypto';
+import {researchCron} from '@/newsroom/helpers/researchCron';
 import {z} from 'zod';
 import {categories} from '@/newsroom/helpers/aiDraftPolicy';
 import {prepareResearch,getResearch,createResearchDraft} from '@/newsroom/helpers/prepareResearch';
@@ -13,11 +13,7 @@ export async function GET(r:Request){
     try{await editor(r);}catch{return json({error:'Editor access required'},403);}
     try{return json(await getResearch());}catch{return json({error:'Research unavailable. Check the database migration.'},503);}
   }
-  const secret=process.env.CRON_SECRET;
-  if(!secret)return json({error:'Cron not configured'},503);
-  const actual=Buffer.from(r.headers.get('authorization')||''),expected=Buffer.from('Bearer '+secret);
-  if(actual.length!==expected.length||!timingSafeEqual(actual,expected))return json({error:'Unauthorised'},401);
-  try{return json(await prepareResearch());}catch{return json({error:'Research preparation failed. Check the database migration.'},503);}
+  return researchCron(r,prepareResearch);
 }
 const actionSchema=z.discriminatedUnion('action',[
   z.object({action:z.literal('prepare')}),
